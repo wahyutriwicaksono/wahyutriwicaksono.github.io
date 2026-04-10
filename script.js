@@ -1,17 +1,28 @@
-console.log("Portfolio loaded");
+let currentSlide = 0;
 
-// simple typing effect
-const role = document.querySelector(".role");
-const text = "Instrument & Control Engineer";
-let index = 0;
-
-function typeEffect() {
-if (index < text.length) {
-role.textContent += text.charAt(index);
-index++;
-setTimeout(typeEffect, 50);
-}
+function getSlides() {
+return document.querySelectorAll(".slide");
 }
 
-role.textContent = "";
-typeEffect();
+function showSlide(index) {
+const slides = getSlides();
+slides.forEach((slide, i) => {
+slide.classList.remove("active");
+if (i === index) slide.classList.add("active");
+});
+}
+
+function nextSlide() {
+const slides = getSlides();
+currentSlide = (currentSlide + 1) % slides.length;
+showSlide(currentSlide);
+}
+
+function prevSlide() {
+const slides = getSlides();
+currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+showSlide(currentSlide);
+}
+
+/* AUTO SLIDE */
+setInterval(nextSlide, 3000);

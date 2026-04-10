@@ -2,85 +2,91 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial;
   }
 
 body {
-height: 100vh;
-background: #0f2027;
+background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 color: white;
-overflow-x: hidden;
 }
 
-/* Background gradient animation */
-.background {
-position: fixed;
-width: 200%;
-height: 200%;
-background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
-animation: moveBg 10s infinite alternate;
-z-index: -1;
-}
-
-@keyframes moveBg {
-0% { transform: translate(0,0); }
-100% { transform: translate(-50px,-50px); }
-}
-
-/* Layout */
 .container {
-max-width: 800px;
+max-width: 900px;
 margin: auto;
 padding: 40px 20px;
 }
 
-/* Header */
 header {
 text-align: center;
 margin-bottom: 40px;
 }
 
 header h1 {
-font-size: 32px;
+font-size: 36px;
 }
 
 .role {
 color: #00c6ff;
-margin-top: 10px;
 }
 
-/* Card */
 .card {
 background: rgba(255,255,255,0.08);
 padding: 25px;
 margin-bottom: 20px;
 border-radius: 15px;
-backdrop-filter: blur(10px);
-transition: 0.3s;
 }
 
-.card:hover {
-transform: translateY(-5px);
-}
-
-/* Highlight */
 .highlight {
 border-left: 4px solid #00c6ff;
 }
 
-/* List */
-ul {
+.grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 10px;
+margin-top: 15px;
+}
+
+.box {
+background: rgba(0,198,255,0.2);
+padding: 10px;
+border-radius: 8px;
+text-align: center;
+}
+
+.slider {
+position: relative;
+height: 300px;
+overflow: hidden;
+border-radius: 10px;
+}
+
+.slide {
+width: 100%;
+height: 300px;
+object-fit: cover;
+display: none;
+}
+
+.slide.active {
+display: block;
+}
+
+.slider-buttons {
+text-align: center;
 margin-top: 10px;
-padding-left: 20px;
 }
 
-li {
-margin-bottom: 8px;
+button {
+padding: 8px 15px;
+margin: 5px;
+border: none;
+background: #00c6ff;
+cursor: pointer;
+border-radius: 5px;
 }
 
-/* Footer */
 footer {
 text-align: center;
-margin-top: 30px;
-opacity: 0.7;
+margin-top: 20px;
 }
